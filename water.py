@@ -1,17 +1,18 @@
 import RPi.GPIO as GPIO
 import time
+import sys
 
 
-print (str(sys.argv[0]))
+seconds = sys.argv[1];
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 GPIO.setup(18,GPIO.OUT)
 
-print "LED on"
-
+print "watering plant"
 GPIO.output(18,GPIO.HIGH)
-time.sleep(1)
+print "waiting... " + str(seconds) + "seconds"
+time.sleep(seconds)
 
 print "LED off"
 GPIO.output(18,GPIO.LOW)
